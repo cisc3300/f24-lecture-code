@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>forms</title>
+    </head>
+    <body>
+
+        <!--action and method-->
+
+        <form
+            id="noJSForm"
+            action="http://www.example.com/subscribe.php"
+            method="get">
+            <label for="username2">Username:</label>
+            <input
+                    id="username2"
+                    type="text"
+                    name="username"
+                    size="15"
+                    maxlength="30"/>
+            </input>
+            <input type="submit" value="Submit"/>
+
+        </form>
+
+<!--        <form-->
+<!--            id="form"-->
+<!--            onsubmit="myFunction(event)"-->
+<!--        >-->
+<!--            &lt;!&ndash;input element with type=text and label&ndash;&gt;-->
+<!--            <label for="username">Username:</label>-->
+<!--            <input-->
+<!--                id="username"-->
+<!--                type="text"-->
+<!--                name="username"-->
+<!--                size="15"-->
+<!--                maxlength="30"/>-->
+<!--            </input>-->
+<!--            <br>-->
+
+<!--            <label for="password">Password:</label>-->
+<!--            <input-->
+<!--                id="password"-->
+<!--                type="password"-->
+<!--                name="password"-->
+<!--                size="15"-->
+<!--                maxlength="30"-->
+<!--            />-->
+<!--            <br>-->
+
+<!--            <label for="comments">Comments:</label>-->
+<!--            <textarea-->
+<!--                id="comments"-->
+<!--                name="comments"-->
+<!--                cols="20"-->
+<!--                rows="4">Enter your comments...-->
+<!--            </textarea>-->
+<!--            <br>-->
+
+<!--            <label>Choose a genre:</label>-->
+<!--            <input type="radio" name="genre" value="rock"-->
+<!--                   checked="checked"/> Rock-->
+<!--            <input type="radio" name="genre" value="pop"/>-->
+<!--            Pop-->
+<!--            <input type="radio" name="genre" value="jazz"/>-->
+<!--            Jazz-->
+<!--            <br>-->
+
+<!--            <label>Choose your music source</label>-->
+<!--            <input type="checkbox"-->
+<!--                   name="service"-->
+<!--                   value="itunes"-->
+<!--                   checked="checked"/>-->
+<!--            iTunes-->
+<!--            <input type="checkbox"-->
+<!--                   name="service"-->
+<!--                   value="lastfm"/>-->
+<!--            Last.fm-->
+<!--            <input type="checkbox"-->
+<!--                   name="service"-->
+<!--                   value="spotify"/>-->
+<!--            Spotify-->
+<!--            <br>-->
+
+<!--            <label for="cars">Choose a car:</label>-->
+<!--            <select id="cars" name="cars">-->
+<!--                <option value="volvo">Volvo</option>-->
+<!--                <option value="saab">Saab</option>-->
+<!--                <option value="fiat">Fiat</option>-->
+<!--                <option value="audi">Audi</option>-->
+<!--            </select>-->
+<!--            <br>-->
+<!--            <input type="submit" name="subscribe"/>-->
+<!--        </form>-->
+
+
+        <script>
+            function myFunction(e) {
+                e.preventDefault()
+                const formData = new FormData(document.getElementById('form'))
+                console.log(formData)
+            }
+        </script>
+
+    </body>
+</html>

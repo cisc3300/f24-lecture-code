@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS</title>
+        <link href="css-file.css" type="text/css"
+              rel="stylesheet"/>
+    </head>
+    <body>
+
+        <!-- universal -->
+        regular text
+
+        <!-- type-->
+        <p>
+            element type
+        </p>
+
+        <!-- class -->
+        <p class="plants">
+            class name
+        </p>
+
+        <!-- id -->
+        <p id="plants-id">
+            element id
+        </p>
+
+        <!-- child -->
+        <ul>
+            <li>
+                <a href="">child select</a>
+            </li>
+            <li>
+                <div>
+                    <!-- descendant -->
+                    <p>descendant select</p>
+                </div>
+            </li>
+        </ul>
+
+        <!-- adjacent  sibling -->
+
+        <h1>test</h1>
+        <p>sibling</p>
+
+        <!-- general  sibling -->
+        <h2>general sibling</h2>
+        <span>test</span>
+        <span>test</span>
+
+    </body>
+</html>
+
+
+<style>
+
+    /* some different selector types */
+
+
+    /* universal */
+    * {
+        font-size: 16px;
+        color: red;
+    }
+
+    /* type */
+    p {
+        color: cyan;
+    }
+
+    /* class  */
+
+    .plants {
+        color: green;
+    }
+
+    /* id */
+    #plants-id {
+        color: blue;
+    }
+
+
+    /* child */
+    li > a {
+        color: pink;
+    }
+
+    /* descendant */
+
+    li p {
+        color: purple;
+    }
+
+    /*    adjacent sibling*/
+    h1 + p {
+        color: brown;
+    }
+
+    /*    general sibling*/
+    h2 ~ span {
+        color: aqua;
+    }
+
+
+</style>
+
+

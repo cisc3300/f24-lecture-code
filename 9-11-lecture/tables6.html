@@ -1,0 +1,85 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>tables</title>
+    </head>
+    <body>
+
+        <!--standard-->
+                <table>
+                    <tr>
+                        <th></th>
+                        <th scope="col">Saturday</th>
+                        <th scope="col">Sunday</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">Tickets sold:</th>
+                        <td>120</td>
+                        <td>135</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Total sales:</th>
+                        <td>$600</td>
+                        <td>$675</td>
+                    </tr>
+                </table>
+
+        span col
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>9am</th>
+                        <th>10am</th>
+                        <th>11am</th>
+                        <th>12am</th>
+                    </tr>
+                    <tr>
+                        <th>Monday</th>
+                        <td colspan="2">Geography</td>
+                        <td>Math</td>
+                        <td>Art</td>
+                    </tr>
+                    <tr>
+                        <th>Tuesday</th>
+                        <td colspan="3">Gym</td>
+                        <td>Home Ec</td>
+                    </tr>
+                </table>
+
+        span row
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>ABC</th>
+                        <th>BBC</th>
+                        <th>CNN</th>
+                    </tr>
+                    <tr>
+                        <th>6pm - 7pm</th>
+                        <td rowspan="2">Movie</td>
+                        <td>Comedy</td>
+                        <td>News</td>
+                    </tr>
+                    <tr>
+                        <th>7pm - 8pm</th>
+                        <td>Sport</td>
+                        <td>Current Affairs</td>
+                    </tr>
+                </table>
+
+
+        <style>
+            table {
+                border-collapse: collapse;
+            }
+
+            td,
+            th {
+                border: 1px solid black;
+                padding: 10px 20px;
+            }
+        </style>
+
+    </body>
+
+</html>
