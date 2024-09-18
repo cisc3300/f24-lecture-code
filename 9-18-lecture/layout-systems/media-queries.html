@@ -1,0 +1,45 @@
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            media queries
+        </title>
+    </head>
+
+
+    <body>
+
+        <div>
+            color change per screen size
+        </div>
+
+        <style>
+
+            div {
+                color: red;
+            }
+
+            @media screen and (min-width: 480px) {
+                div {
+                    color: blue;
+                }
+            }
+
+            @media screen and (min-width: 780px) {
+                div {
+                    color: green;
+                }
+            }
+
+            @media screen and (min-width: 1200px) {
+                div {
+                    color: pink;
+                }
+            }
+
+        </style>
+
+    </body>
+
+</html>

@@ -1,0 +1,61 @@
+<html>
+  
+  <head>
+    
+    <title>flexbox</title>
+  
+  </head>
+  
+  <body>
+    
+    <div class="flex-container">
+      <div class="flex-item">div1</div>
+      <div class="flex-item">div2</div>
+      <div class="flex-item">div3</div>
+    </div>
+    
+    <style>
+      
+      .flex-container {
+        /* creates 2 axis -> a main axis and a cross axis*/
+        display: flex;
+        
+        /* flex direction row is horizontal left to right*/
+        flex-direction: row;
+        
+        /* flex direction column is vertical left to right*/
+        /*flex-direction: column;*/
+        
+        /*flex wrap */
+        flex-wrap: wrap;
+        
+        /*justify content - aligns items on the main axis*/
+        justify-content: center;
+        
+        /*align items - aligns items on the cross axis  */
+        /*align-items: flex-end;*/
+        
+        /*align content - only works with flex wrap - aligns wrapped items on the cross axis*/
+        /*align-content: flex-end;*/
+
+        /*width: 600px;*/
+
+
+      }
+      
+      .flex-item {
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+        color: white;
+        margin: 20px;
+        
+        /* orders flex children*/
+      }
+    
+    
+    </style>
+  
+  </body>
+
+</html>
