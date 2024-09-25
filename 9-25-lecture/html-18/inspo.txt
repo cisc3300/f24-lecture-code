@@ -1,0 +1,10 @@
+some css frameworks:
+https://bulma.io/
+https://materializecss.com/
+
+portfolio inspiration:
+https://www.rammaheshwari.com/
+https://bonhomme.lol/
+https://jhey.dev/
+https://meowni.ca/
+https://brittanychiang.com/

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>JS example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+  
+    <div>
+      
+      <div class="color-container">
+        <button id="color-change">change color</button>
+        <div id="color-text">
+          color text
+        </div>
+      </div>
+      
+      <button id="cat-facts-button">
+        random pokemon
+      </button>
+      
+      <div id="random-pokemon">
+      
+      </div>
+    </div>
+  
+    <script>
+  
+
+
+      $( document ).ready(function() {
+
+        $("#color-change").click(function(){
+          const colorArray = [
+            'blue',
+            'red',
+            'green',
+            'pink',
+            'teal',
+            'yellow',
+            'orange',
+            'brown',
+            'purple',
+            'maroon'
+          ]
+          const randomColor = Math.floor(Math.random() * 11);
+          $("#color-text").css("color", `${colorArray[randomColor]}`);
+        })
+
+
+
+
+        $("#cat-facts-button").click(function(){
+          const randomID = Math.floor(Math.random() * 1026);
+          $.get(`https://pokeapi.co/api/v2/pokemon/${randomID}`, function(data, status){
+            //object
+            console.log(data)
+            if (data.id) {
+              $("#random-pokemon").html(`
+              <div>${data.name}</div>
+              <img src="${data.sprites.front_default}" />
+            `);
+
+            }
+
+          });
+        });
+      });
+      
+      //event
+      //and function
+      //
+
+
+      console.log(window)
+      console.log(document)
+
+    </script>
+  
+    <style>
+      .color-container {
+        margin-bottom: 50px;
+      }
+    </style>
+  
+  </body>
+</html>
