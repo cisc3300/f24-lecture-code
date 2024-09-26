@@ -22,9 +22,9 @@ if (1 > 2) {
 } else {
   console.log('else run this')
 }
-
+const yo = "pincone"
 //switch
-switch('pinecone') {
+switch(yo) {
   case 'cat1':
     // code block
     break;
@@ -53,7 +53,7 @@ if(false === 0) {
 
 
 //truthy falsy gotchas
-if({}) {
+if([]) {
   console.log("empty object = true!")
 }
 const emptyArray = []
@@ -79,6 +79,7 @@ const consoleCats = function (cat) {
 }
 
 //for loops
+//imperative
 for (let i = 0; i < cats.length; i++) {
   console.log(cats[i]);
 }

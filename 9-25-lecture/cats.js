@@ -55,4 +55,6 @@ const cats = [
         name: 'Daisy',
         adoptionStatus: 'available'
     },
-]
+];
+
+const cat = {name:"Pinecone", age:13, type:'Munchkin', cuteness: 9001};

@@ -26,7 +26,7 @@ const specialChar = "\"quotes\""
 console.log(specialChar)
 
 //arrays
-const array = [1,2,3];
+const array = [1,2,3, "test", true, [1,2,3]];
 
 //length
 
@@ -46,5 +46,8 @@ if ('1' === 1) {
 } else {
     console.log('false');
 }
+
+//== no type checking
+//=== includes type checking
 
 //operators

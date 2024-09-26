@@ -8,12 +8,13 @@ const cat = {
     },
     meow2: () => {
         console.log(this.name)
-
     }
 }
 
 // console.log(cat.name)
 cat.meow()
-cat.meow2()
-
-
+cat['meow']()
+// cat.meow2()
+// console.log(this)
+console.log(window)
+console.log(document)
