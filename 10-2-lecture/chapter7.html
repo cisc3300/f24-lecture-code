@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  </head>
+  <body>
+    
+    <div id="div-1">
+      div 1
+    </div>
+    
+    <div class="class-div">
+      <div class="sub-class">sub div</div>
+    </div>
+    
+    <div id="div-2">
+      text
+      <p>sub p element</p>
+    </div>
+    
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    
+    <form id="form-id">
+      <input type="text" name="text">
+      <input type="submit" value="submit">
+    </form>
+    
+    <script>
+      //selections
+      
+      //calling jquery + shorthand
+      // const divOne = jQuery('#div-1');
+      // console.log(divOne)
+      const shortHand = $('#div-1')
+      
+      //different selectors
+      
+      //basic selectors - css style, by class, by id
+      // const byId = $('#div-1')
+      // const byClass = $('.class-div')
+      
+      //hierarchy - parent and child
+      // const subDiv = $('.class-div > .sub-class');
+      // console.log(subDiv)
+      
+      //basic filters - first element of type
+      // const first = $(':first div')
+      // console.log(first)
+      
+      //content filter - contains text, this selects all parents too
+      // const textContent = $(":contains('div 1')")
+      // console.log(textContent)
+
+      //visibility filter - grab all visible
+      // const notHidden = $(":visible")
+      
+      //child filters - first contained element of div 1
+      // const firstChild = $('#div-1:first-child')
+      // console.log(firstChild)
+      
+      //attribute filters - grab any with class: class-div
+      // const classDiv = $("[class='class-div']")
+      // console.log(classDiv)
+      
+      //doing things with selected elements
+      
+      
+      //get element data with html()
+      const second = $('#div-2')
+      // console.log(second.html());
+      
+      //getting element text with text()
+      // const text = $('#div-1').text();
+      // console.log(text)
+      //
+      
+      //setting element data, .html and .text can get or set if given a value or not
+      // second.html('updated');
+      // $('#div-1').text('text update');
+      
+      
+      //set en masse - no need to loop
+      // $('li').text('mass update');
+
+      //unless you want to
+      // $("li").each(function (index) {
+      //   // can select in a callback with this, this = the element
+      //   $(this).text(`${index}`);
+      // });
+
+      //chaining - do one thing then another
+      $('#div-2').hide().delay(1000).fadeIn(2000);
+      // $('#div-2').html('first').html('second').html('third');
+
+      
+      //document ready - our webpage is loaded and ready to do things
+      // - useful if we need to wait for data before making calls
+      // $(document).ready(function () {
+      //   console.log('ready!')
+      // })
+      
+      
+      //inserting elements
+      //before an element
+      // $('#div-1').before('<p>before</p>');
+      
+      //after
+      // $('#div-1').after('<p>after</p>');
+      
+      //prepend, insert into an element right after the opening tag
+      // $('#div-1').prepend('<p>prepend</p>');
+      
+      //append, insert into an element right before the closing tag
+      // $('#div-1').append('<p>append</p>');
+      
+      
+      //attribute values
+      
+      //set an attribute
+      // $('#div-1').attr('class', 'set-class');
+      
+      //set a class
+      // $('#div-1').addClass('set-class');
+      
+      
+      //set css declaration
+      // $('#div-1').css('color', 'blue');
+      
+      //get css values
+      // console.log($('#div-1').css('color'));
+      
+      
+      //events - .on function and then the name of the event you want to handle
+      // $('li').on('click', function (e) {
+      //   $(this).css("color", "red")
+      // })
+      
+      //effects
+      // const li = $('li')
+      // $('li').on('click', function () {
+      //   $(this).fadeOut(700);
+      // });
+      
+      //traversing the dom
+      // const parent = $('li').parent();
+      // console.log(parent)
+      
+      
+      //form
+      const newForm = $('#form-id')
+      newForm.on('submit', function (e) {
+        e.preventDefault();
+        var newText = $('input:text').val();
+        console.log(newText)
+      });
+    
+    </script>
+  
+  </body>
+</html>

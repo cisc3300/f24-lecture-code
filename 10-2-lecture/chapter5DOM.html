@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+  </head>
+  <body>
+    
+    <div id="first-div" class="first">
+      test
+    </div>
+    
+    <div id="list-container">
+      <ul id="ul">
+        <li class="list-item" id="first-list-item">
+          first
+        </li>
+        <li class="list-item">
+          second
+        </li>
+        <li class="list-item">
+          third
+        </li>
+      </ul>
+    </div>
+    
+    
+    <div id="second-div">
+      text
+      <p>
+        paragraph
+      </p>
+    </div>
+    
+    
+    <div id="remove-div">
+      remove!
+    </div>
+    
+    <script>
+      
+      // we can console.log the whole document that we are working with
+      // console.log(document)
+
+      //select individual dom elements by id with get elementById
+      // const firstDiv = document.getElementById('first-div');
+      // console.log(firstDiv)
+
+      // querySelector only returns first
+      const firstDiv = document.querySelector('div.first')
+      console.log(firstDiv)
+      firstDiv.textContent = 'new content'
+      
+      //select multiple dom elements
+      
+      //by class name
+      // const listItems = document.getElementsByClassName('list-item')
+      // console.log(listItems)
+      
+      //by tag name
+      const listItems = document.getElementsByTagName('li')
+      console.log(listItems);
+      
+      //querySelectorAll = returns a static nodeList - which is read only!
+      
+      //with a css like selector -
+      const staticList = document.querySelectorAll('li.list-item')
+      console.log("staticList")
+      console.log(staticList)
+
+      
+      //3. loop through a node list
+      // console.log(listItems.item(0))
+      // console.log(listItems[0])
+      // for (let i = 0; i < listItems.length; i++) {
+      //   console.log(listItems[i])
+      //   listItems[i].textContent = 'hey'
+      // }
+      
+      
+      //4. traverse between
+      
+      //parentNode
+      //previous/next sibling
+      //first, lastChild
+      
+      const unorderedList = document.getElementById('ul')
+      const firstListItem = document.getElementById('first-list-item')
+      // console.log("traverse")
+      // console.log(unorderedList.parentNode)
+      // console.log(firstListItem.nextSibling)
+      // console.log(firstListItem.nextElementSibling)
+      // console.log(unorderedList.firstElementChild)
+      
+      
+      //5. change text value
+      const secondDiv = document.getElementById('second-div');
+      
+      //overwrites
+      secondDiv.textContent = 'yo'
+      
+      //need to be specific if multiple siblings are at play
+      //whitespace nodes
+      // secondDiv.firstChild.nextSibling.textContent = 'update'
+      
+      
+      //6. change html values
+      
+      //inner html - overwrites again
+      secondDiv.innerHTML = '<p>new p</p>'
+      
+      const newDiv = document.createElement('div');
+      const newDivTextContent = document.createTextNode('new text')
+      newDiv.appendChild(newDivTextContent)
+      secondDiv.appendChild(newDiv)
+
+
+
+      
+      //7. Remove nodes
+      // const removeDiv = document.getElementById('remove-div')
+      // const removeParent = removeDiv.parentNode
+      // removeParent.removeChild(removeDiv)
+      
+      //8. access and update attributes
+      // const firstDivClass = document.getElementById('first-div').getAttribute('class');
+      // console.log(firstDivClass);
+      const firstDivClass = document.getElementById('first-div');
+      firstDivClass.setAttribute('style', 'color: red')
+    
+    </script>
+  
+  </body>
+</html>

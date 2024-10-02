@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+  </head>
+  <body>
+    
+    
+    <!--  html event handler   -->
+    <div id="html-event-handler" onclick="htmlDOMReact()">
+      html event handler
+    </div>
+    
+    <!--  dom event handler  -->
+    <div id="dom-event-handler">
+      dom event handler
+    </div>
+  
+    <div id="event-listener">
+      event listener
+    </div>
+    
+    <div id="container-div">
+      <div id="child-div">
+        event flow
+      </div>
+    </div>
+    
+    <form id="form">
+      <input id="name" type="text" name="text">
+      <input type="submit" value="Submit">
+    </form>
+    
+    <script>
+      
+      //3 ways to bind
+      //1. html dom handler - above
+
+      function htmlDOMReact() {
+        console.log('clicked!')
+      }
+      
+      //2. dom event handlers
+
+      function domEventHandlerReact(e) {
+        console.log(e)
+        console.log('clicked 2!')
+      }
+      document.getElementById('dom-event-handler').onclick = domEventHandlerReact
+      
+      
+      //3. event listener
+      document.getElementById('event-listener').addEventListener('click', function (e) {
+        //when a click event happens, call this function, will automatically pass the event
+        
+        //this keyword -> we are in the context of the node object
+        // console.log(this)
+        
+        //event object
+        // console.log(e)
+      });
+
+      window.addEventListener('load', function (e) {
+        console.log("loaded")
+      });
+
+      document.getElementById('event-listener').addEventListener('click', function (e) {
+        // console.log('second function!')
+      });
+      
+      document.getElementById('container-div').addEventListener('click', function (e) {
+        console.log('container clicked')
+      });
+      document.getElementById('child-div').addEventListener('click', function (e) {
+        console.log('child clicked')
+      });
+      
+      const nameElement = document.getElementById('name');
+      //example form prevent default
+      document.getElementById('form').addEventListener('submit', function (e) {
+        e.preventDefault()
+        console.log(nameElement.value)
+      });
+      
+      
+    
+    </script>
+  
+  </body>
+</html>
