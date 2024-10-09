@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>AJAX</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    </head>
+    <body>
+
+        <button id="xml-button">
+            xml request
+        </button>
+
+        <button id="ajax-get">
+            ajax get
+        </button>
+
+        <h3 style="padding-top: 30px">form!</h3>
+        <div class="container">
+            <form id="form-id">
+                <div style="margin: 20px 0">
+                    <label>title</label>
+                    <input type="text" id='title-input' name="title">
+                </div>
+                <div style="margin: 20px 0">
+                    <label>description</label>
+                    <input type="text" id="description-input" name="description"><br/>
+                </div>
+                <div style="margin: 20px 0">
+                    <input type="submit" value="submit"><br/>
+                </div>
+            </form>
+        </div>
+
+
+        <script>
+
+            $('#xml-button').on('click', function () {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/1', true);
+                xhr.send();
+
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        console.log(xhr.responseText)
+                        const parsed = JSON.parse(xhr.responseText)
+                        console.log(parsed)
+                        const toString = JSON.stringify(parsed)
+                        console.log(toString)
+                    }
+                }
+            })
+
+            // $('#ajax-get').on('click', function () {
+            //     // get data from posts
+            //     // $.ajax({
+            //     //     url: 'https://pokeapi.co/api/v2/pokemon/?limit=1',
+            //     //     type: "GET",
+            //     //     dataType: "json",
+            //     //     success: function (data) {
+            //     //         // the $. ajax() method will automatically parse the JSON and turn it into a JavaScript object for you.
+            //     //         console.log(data);
+            //     //     }
+            //     // });
+            //
+            //
+            //     //short hand
+                $.get({
+                  url: 'http://localhost:3000/posts',
+                  success: function (data) {
+                    console.log(data);
+                  }
+                });
+
+            // })
+
+            //form
+            $('#form-id').on('submit', function (e) {
+                e.preventDefault();
+                var title = $('#title-input').val();
+                var description = $('#description-input').val();
+
+                const date = new Date();
+
+                const data = {
+                    //get millisecond
+                    id: date.valueOf(),
+                    title: title,
+                    description: description
+                }
+                //we need to serialize our javascript objects into a json string
+                const serializedJSON = JSON.stringify(data)
+                $.ajax({
+                    url: 'http://localhost:3000/posts',
+                    type: "POST",
+                    data: serializedJSON,
+                    dataType: "json",
+                    success: function (data) {
+                        // the $. ajax() method will automatically parse the JSON and turn it into a JavaScript object for you.
+                        console.log(data);
+                        title = $('#title-input').val('')
+                        title = $('#description-input').val('')
+                    },
+                    error: function () {
+                        console.log()
+                    }
+                });
+
+            });
+
+
+        </script>
+
+        <style>
+            .container {
+                width: 500px;
+                clear: both;
+            }
+
+            .container input {
+                width: 100%;
+                clear: both;
+            }
+        </style>
+
+    </body>
+</html>

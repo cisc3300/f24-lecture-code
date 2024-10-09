@@ -1,0 +1,14 @@
+{
+  "posts": [
+    {
+      "name": "Mr",
+      "age": "9 months",
+      "breed": "Maine Coon"
+    },
+    {
+      "name": "Pinecone",
+      "age": "13 years",
+      "breed": "Munchkin"
+    },
+  ]
+}
