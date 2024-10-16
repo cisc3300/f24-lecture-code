@@ -1,18 +1,27 @@
 <?php
+
+//indexed arrays, two ways to declare
     $indexArray = [1, 2, 3];
     $otherSyntax = array(4, 5, 6);
 
-//    set with the arrow operator
+//associative arrays
     $associativeArray = [
-      'key1' => 'value1'
+      'key1' => 'value1',
+      'key2' => 2,
     ];
 
-//    print($indexArray[0]);
+    echo $indexArray[0];
+    echo '<br>';
+    var_dump($indexArray);
+    echo '<br>';
 
     $twoDArray = [
         [1, 2, 3],
         [4, 5, 6],
     ];
 
-//    print($otherSyntax[0]);
-    print($twoDArray[0][2]);
+    var_dump($twoDArray[0]);
+    echo '<br>';
+    echo $twoDArray[0][2];
+    echo '<br>';
+    echo $twoDArray[0][2];

@@ -1,8 +1,9 @@
 <?php
+//we can
 declare(strict_types = 1);
 //declare and call
 //function firstFunction() {
-//    print('yo');
+//    echo 'yo';
 //}
 //
 //firstFunction();
@@ -11,18 +12,17 @@ declare(strict_types = 1);
 
 //$scope = 'yo';
 //function secondFunction() {
-//    print($scope);
+//    echo $scope;
 //}
 //secondFunction();
 
 
 //global and static
 
-
 //$globalScope = 'yo';
 //function globalScopeFunction() {
 //    global $globalScope;
-//    print($globalScope);
+//    echo $globalScope;
 //}
 //globalScopeFunction();
 
@@ -31,8 +31,8 @@ declare(strict_types = 1);
 //    //only initialized on the first call!
 //    static $saveForLater = 0;
 //    $total = $saveForLater += $number;
-//    print($total);
-//    print('break');
+//    echo $total;
+//    echo 'break';
 //    return $total;
 //}
 ////
@@ -48,7 +48,7 @@ declare(strict_types = 1);
 //    ];
 //}
 //$returned = returnArray();
-//print($returned['name']);
+//echo $returned['name'];
 
 //argument and return type declarations
 function calculateTotal(int $price, int $quantity) : int {

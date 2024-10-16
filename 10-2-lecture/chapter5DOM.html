@@ -40,16 +40,16 @@
     <script>
       
       // we can console.log the whole document that we are working with
-      // console.log(document)
+      console.log(document)
 
       //select individual dom elements by id with get elementById
       // const firstDiv = document.getElementById('first-div');
       // console.log(firstDiv)
 
       // querySelector only returns first
-      const firstDiv = document.querySelector('div.first')
-      console.log(firstDiv)
-      firstDiv.textContent = 'new content'
+      // const firstDiv = document.querySelector('div.first')
+      // console.log(firstDiv)
+      // firstDiv.textContent = 'new content'
       
       //select multiple dom elements
       
@@ -59,23 +59,23 @@
       
       //by tag name
       const listItems = document.getElementsByTagName('li')
-      console.log(listItems);
+      // console.log(listItems);
       
       //querySelectorAll = returns a static nodeList - which is read only!
       
       //with a css like selector -
-      const staticList = document.querySelectorAll('li.list-item')
-      console.log("staticList")
-      console.log(staticList)
+      // const staticList = document.querySelectorAll('li.list-item')
+      // console.log("staticList")
+      // console.log(staticList)
 
       
       //3. loop through a node list
-      // console.log(listItems.item(0))
+      console.log(listItems.item(0))
       // console.log(listItems[0])
-      // for (let i = 0; i < listItems.length; i++) {
-      //   console.log(listItems[i])
-      //   listItems[i].textContent = 'hey'
-      // }
+      for (let i = 0; i < listItems.length; i++) {
+        console.log(listItems[i])
+        listItems[i].textContent = 'hey'
+      }
       
       
       //4. traverse between
@@ -87,10 +87,10 @@
       const unorderedList = document.getElementById('ul')
       const firstListItem = document.getElementById('first-list-item')
       // console.log("traverse")
-      // console.log(unorderedList.parentNode)
-      // console.log(firstListItem.nextSibling)
-      // console.log(firstListItem.nextElementSibling)
-      // console.log(unorderedList.firstElementChild)
+      console.log(unorderedList.parentNode)
+      console.log(firstListItem.nextSibling)
+      console.log(firstListItem.nextElementSibling)
+      console.log(unorderedList.firstElementChild)
       
       
       //5. change text value
@@ -107,14 +107,12 @@
       //6. change html values
       
       //inner html - overwrites again
-      secondDiv.innerHTML = '<p>new p</p>'
-      
+      secondDiv.innerHTML = 'sc'
+
       const newDiv = document.createElement('div');
       const newDivTextContent = document.createTextNode('new text')
       newDiv.appendChild(newDivTextContent)
       secondDiv.appendChild(newDiv)
-
-
 
       
       //7. Remove nodes

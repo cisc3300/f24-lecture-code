@@ -28,7 +28,7 @@
     </div>
     
     <form id="form">
-      <input id="name" type="text" name="text">
+      <input id="input-name" type="text" name="text">
       <input type="submit" value="Submit">
     </form>
     
@@ -55,15 +55,15 @@
         //when a click event happens, call this function, will automatically pass the event
         
         //this keyword -> we are in the context of the node object
-        // console.log(this)
+        console.log(this)
         
         //event object
-        // console.log(e)
+        console.log(e)
       });
 
-      window.addEventListener('load', function (e) {
-        console.log("loaded")
-      });
+      // window.addEventListener('load', function (e) {
+      //   console.log("loaded")
+      // });
 
       document.getElementById('event-listener').addEventListener('click', function (e) {
         // console.log('second function!')
@@ -72,11 +72,11 @@
       document.getElementById('container-div').addEventListener('click', function (e) {
         console.log('container clicked')
       });
-      document.getElementById('child-div').addEventListener('click', function (e) {
-        console.log('child clicked')
-      });
+      // document.getElementById('child-div').addEventListener('click', function (e) {
+      //   console.log('child clicked')
+      // });
       
-      const nameElement = document.getElementById('name');
+      const nameElement = document.getElementById('input-name');
       //example form prevent default
       document.getElementById('form').addEventListener('submit', function (e) {
         e.preventDefault()

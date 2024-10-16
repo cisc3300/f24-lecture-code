@@ -39,7 +39,7 @@
       // const divOne = jQuery('#div-1');
       // console.log(divOne)
       const shortHand = $('#div-1')
-      
+      console.log(shortHand);
       //different selectors
       
       //basic selectors - css style, by class, by id
@@ -102,9 +102,9 @@
       
       //document ready - our webpage is loaded and ready to do things
       // - useful if we need to wait for data before making calls
-      // $(document).ready(function () {
-      //   console.log('ready!')
-      // })
+      $(document).ready(function () {
+        console.log('ready!')
+      })
       
       
       //inserting elements
@@ -124,7 +124,7 @@
       //attribute values
       
       //set an attribute
-      // $('#div-1').attr('class', 'set-class');
+      $('#div-1').attr('class', 'set-class');
       
       //set a class
       // $('#div-1').addClass('set-class');
@@ -138,9 +138,9 @@
       
       
       //events - .on function and then the name of the event you want to handle
-      // $('li').on('click', function (e) {
-      //   $(this).css("color", "red")
-      // })
+      $('li').on('click', function (e) {
+        $(this).css("color", "red")
+      })
       
       //effects
       // const li = $('li')
@@ -162,6 +162,12 @@
       });
     
     </script>
+
+    <style>
+      .set-class{
+        color: red;
+      }
+    </style>
   
   </body>
 </html>
