@@ -1,7 +1,7 @@
 <?php
 
 //string operators
-$test = 'test';
+$test = 'cat';
 $concat = $test . ' test2';
 
 echo $concat;
@@ -12,4 +12,4 @@ echo '<br>';
 
 //template literal
 
-echo "Hello {$test}";
+echo "Hello {$test}s";

@@ -1,0 +1,69 @@
+#results-container {
+
+}
+
+.users-form {
+    max-width: 900px;
+}
+
+.itinerary-container {
+    white-space: pre-line;
+}
+.margin-negative-ten {
+    margin-bottom: -30px;
+}
+
+.user-container {
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+    /*align-items: center;*/
+    display: grid;
+    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+.user {
+    font-weight: 500;
+}
+
+.error-border {
+    border: 2px solid red;
+}
+.error-text {
+    color: red;
+}
+.class-item {
+    padding: 10px;
+}
+
+.link {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+
+#delete-user-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.delete-button {
+    max-width: 200px;
+}
+
+#users-data {
+    display: block;
+}
+
+.margin-twenty {
+    margin-top: 20px;
+}
+
+.margin-thirty {
+    margin-top: 30px;
+}
+
+.margin-ten {
+    margin-top: 10px;
+}

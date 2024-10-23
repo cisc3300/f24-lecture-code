@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Road Trip Planner</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="/assets/styles/users-view.css">
+    </head>
+    <body>
+
+        <div class="container users-form margin-thirty">
+            <h2>plan your road trip!</h2>
+            <div class="margin-twenty">
+                <form id="class-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="startingLocationTextBox"
+                               placeholder="starting location">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="endingLocationTextBox" placeholder="ending location">
+                    </div>
+
+                    <div>
+                        <button type="button" class="btn btn-primary" id="search-button">Go!</button>
+                    </div>
+
+                    <div id="results" class="margin-ten user-container"></div>
+                    <h3 id="directions-title" class="margin-thirty"></h3>
+                    <ul id="directions-container" ></ul>
+                    <h3 id="itinerary-title" class="margin-thirty margin-negative-ten"></h3>
+                    <div id="itinerary-container" class="itinerary-container"></div>
+                    <div id="spinner-container"></div>
+                </form>
+            </div>
+        </div>
+
+        <script>
+
+            const search = function () {
+                $('#spinner-container').append(`
+                <div class="spinner-border text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                `);
+
+                $.ajax({
+                    url: `http://localhost:8888/road-trip`,
+                    type: "GET",
+                    dataType: "json",
+                    data: {
+                        startingLocation: $('#startingLocationTextBox').val(),
+                        endingLocation: $('#endingLocationTextBox').val(),
+                    },
+                    success: function (data) {
+                        $('#spinner-container').html('')
+                        $('#directions-container').html('')
+                        $('#itinerary-container').html('')
+                        $('#itinerary-title').append('Travel Itinerary')
+                        $('#directions-title').html('Travel Directions')
+
+                        $('#itinerary-container').html(`<p>${data.gpt}</p>`)
+                        $.each(data.directions, function (key, value) {
+                            $('#directions-container').append(`
+                                <li>
+                                   ${value}
+                                </li>`)
+                        });
+                    }
+                });
+            }
+
+            $(document).ready(function () {
+                $('#class-form').on('submit', function (e) {
+                    e.preventDefault()
+                })
+
+                $('#search-button').on('click', function() {
+                    search()
+                })
+            })
+        </script>
+    </body>
+</html>

@@ -11,7 +11,7 @@
 //Return 0 if values on either side are equal
 //Return 1 if the value on the left is greater
 //Return -1 if the value on the right is greater
-echo (1 <=> 2);
+//echo (1 <=> 2);
 
 //xor, true if either $a or $b is true, but not both
 if (true xor true) {

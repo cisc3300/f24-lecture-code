@@ -2,9 +2,9 @@
 //we can
 declare(strict_types = 1);
 //declare and call
-//function firstFunction() {
-//    echo 'yo';
-//}
+function firstFunction() {
+    echo 'yo';
+}
 //
 //firstFunction();
 
@@ -41,12 +41,12 @@ declare(strict_types = 1);
 
 
 //return multiple values
-//function returnArray() {
-//    return [
-//        'name' => 'Pinecone',
-//        'type' => 'floofy'
-//    ];
-//}
+function returnArray() {
+    return [
+        'name' => 'Pinecone',
+        'type' => 'floofy'
+    ];
+}
 //$returned = returnArray();
 //echo $returned['name'];
 
@@ -54,6 +54,8 @@ declare(strict_types = 1);
 function calculateTotal(int $price, int $quantity) : int {
     return $price * $quantity;
 }
+
+echo calculateTotal(1, 2);
 
 //couple ways of return typing
 //function calculateWhatever(int $price, int $quantity) : mixed {
@@ -69,26 +71,26 @@ function calculateTotal(int $price, int $quantity) : int {
 //print($total);
 
 //multiple return statements
-function calculateWhatever4() {
-    if (1 === 1) {
-        //early return
-        return "yes";
-    }
-
-    return "no";
-}
-
-//optional params / default values
-//giving a parameter a default value means it is now optional when calling the function
+//function calculateWhatever4() {
+//    if (1 === 1) {
+//        //early return
+//        return "yes";
+//    }
+//
+//    return "no";
+//}
+//
+////optional params / default values
+////giving a parameter a default value means it is now optional when calling the function
 function calculateWhatever2($price, $quantity, $total = 0) {
     return $price * $quantity * $total;
 }
 $output = calculateWhatever2(1, 2);
-
-//named arguments
-
+//
+////named arguments
+//
 function calculateWhatever3($price, $quantity, $total) {
     return $price * $quantity * $total;
 }
-
-$output2 = calculateWhatever3(total: 1, quantity: 2, price: 3);
+//
+//$output2 = calculateWhatever3(total: 1, quantity: 2, price: 3);

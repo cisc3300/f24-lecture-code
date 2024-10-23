@@ -8,7 +8,7 @@
 //    echo (0 ? 'true' : 'false');
 //    //different from js
 //    echo ('0' ? 'true' : 'false');
-    echo ([] ? 'true' : 'false');
+//    echo ([] ? 'true' : 'false');
 
 
 
