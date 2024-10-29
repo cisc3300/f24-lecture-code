@@ -31,4 +31,8 @@ class Cat
     {
         echo 'meow';
     }
+
+    public static function staticMethod(){
+        echo 'this is static';
+    }
 }
