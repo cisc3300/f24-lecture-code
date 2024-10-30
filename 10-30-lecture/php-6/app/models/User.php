@@ -17,7 +17,7 @@ class User {
             ],
 //            [
 //                'id' => '3',
-//                'name' => "<script>alert('yo')</script>"
+//                'name' => "<script>alert('imagine i am doing something malicious')</script>"
 //            ],
         ];
 

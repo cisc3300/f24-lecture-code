@@ -20,12 +20,12 @@ if ($uriArray[1] === 'api' && $uriArray[2] === 'users' && $_SERVER['REQUEST_METH
     $userController->saveUser();
 }
 
-if ($uriArray[1] === 'add-users' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+if ($uriArray[1] === 'users-add' && $_SERVER['REQUEST_METHOD'] === 'GET') {
     $userController = new UserController();
     $userController->viewUsers();
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+if (count($uriArray) === 1 && $_SERVER['REQUEST_METHOD'] === 'GET') {
     require './views/users.html';
     exit();
 }
