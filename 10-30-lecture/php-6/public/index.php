@@ -22,7 +22,7 @@ if ($uriArray[1] === 'api' && $uriArray[2] === 'users' && $_SERVER['REQUEST_METH
 
 if ($uriArray[1] === 'users-add' && $_SERVER['REQUEST_METHOD'] === 'GET') {
     $userController = new UserController();
-    $userController->viewUsers();
+    $userController->viewAddUsers();
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {

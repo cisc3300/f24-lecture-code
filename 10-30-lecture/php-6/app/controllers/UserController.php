@@ -29,7 +29,8 @@ class UserController
             //meaning they can't be run as code
             $name = htmlspecialchars($name);
 
-//            echo htmlspecialchars($name);
+//            echo ($name);
+//            echo htmlspecialchars(htmlspecialchars($name));
 
             //validate text length
             if (strlen($name) < 2) {
@@ -41,7 +42,7 @@ class UserController
 
         //numbers
         if ($age) {
-            if ($age < 0 || $age > 120 || !intval($age)) {
+            if ($age <= 0 || $age > 120 || !intval($age)) {
                 $errors['age'] = 'age is invalid';
             }
         } else {
@@ -77,7 +78,7 @@ class UserController
         exit();
     }
 
-    public function viewUsers() {
+    public function viewAddUsers() {
         require './views/add-users.html';
         exit();
     }

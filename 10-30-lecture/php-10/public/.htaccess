@@ -1,3 +1,4 @@
+<IfModule mod_rewrite.c>
 RewriteEngine On
 
 #accept loading of actual files and directories
@@ -8,3 +9,4 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
 
 php_flag display_errors On
+</IfModule>

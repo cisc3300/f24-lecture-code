@@ -8,7 +8,7 @@ use Error;
 function myErrorHandler($errno, $errstr, $errfile, $errline) {
 //    echo "<b>Custom error:</b> [$errno] $errstr<br>";
 //    echo " Error on line $errline in $errfile<br>";
-    echo 'yo';
+    echo 'my error handler called';
     exit();
 }
 
@@ -20,9 +20,9 @@ class ErrorController {
         try {
 //        echo 'Find an error";
 
-            $price = 7;
-            $quantity = 'five';
-            $price * $quantity;
+//            $price = 7;
+//            $quantity = 'five';
+//            $price * $quantity;
             if (true) {
                 throw new Exception('Custom error message!');
             }
