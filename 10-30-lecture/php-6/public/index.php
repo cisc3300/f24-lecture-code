@@ -25,7 +25,7 @@ if ($uriArray[1] === 'users-add' && $_SERVER['REQUEST_METHOD'] === 'GET') {
     $userController->viewUsers();
 }
 
-if (count($uriArray) === 1 && $_SERVER['REQUEST_METHOD'] === 'GET') {
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     require './views/users.html';
     exit();
 }
