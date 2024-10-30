@@ -5,39 +5,34 @@ namespace app\controllers;
 use Exception;
 use Error;
 
-function myErrorHandler($errno, $errstr, $errfile, $errline)
-{
-    echo "<b>Custom error:</b> [$errno] $errstr<br>";
-    echo " Error on line $errline in $errfile<br>";
+function myErrorHandler($errno, $errstr, $errfile, $errline) {
+//    echo "<b>Custom error:</b> [$errno] $errstr<br>";
+//    echo " Error on line $errline in $errfile<br>";
+    echo 'yo';
+    exit();
 }
 
-class ErrorController
-{
+class ErrorController {
 
-    public function viewErrors()
-    {
-        $title = 'View Errors';
-        set_error_handler("app\controllers\myErrorHandler");
-        //parse error
-        //echo 'Find an error";
-
-        //
-//        $price = 7;
-//        $quantity = 'five';
-//        $total = $price * $quantity;
+    public function viewErrors() {
+//        parse error
 
         try {
-//            $price = 7;
-//            $quantity = 'five';
-//            $total = $price * $quantity;
+//        echo 'Find an error";
+
+            $price = 7;
+            $quantity = 'five';
+            $price * $quantity;
             if (true) {
-                throw new Exception('Division by zero.');
+                throw new Exception('Custom error message!');
             }
         } catch (Error $e) {
             echo 'Caught error';
         }
 
+        //set a custom function for errors
+        set_error_handler("app\controllers\myErrorHandler");
+        trigger_error('');
 
-        include './assets/views/errors/errors.php';
     }
 }

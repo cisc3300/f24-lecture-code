@@ -23,7 +23,7 @@ class User {
 
         if (!empty($params['name'])) {
             return array_filter($allUsers, function ($user) use ($params) {
-                if ($user['name'] === $params['name']) {
+                if (str_contains(strtolower($user['name']), $params['name'])) {
                     return $user;
                 };
                 return null;

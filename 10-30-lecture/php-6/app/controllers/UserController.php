@@ -75,7 +75,11 @@ class UserController
         ];
         echo json_encode($returnData);
         exit();
+    }
 
+    public function viewUsers() {
+        require './views/add-users.html';
+        exit();
     }
 
 }

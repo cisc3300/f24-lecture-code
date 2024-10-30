@@ -15,17 +15,17 @@ if ($uriArray[1] === 'api' && $uriArray[2] === 'users' && $_SERVER['REQUEST_METH
     $userController->getUsers();
 }
 
-if ($uriArray[1] === 'users' && $_SERVER['REQUEST_METHOD'] === 'GET') {
-    require './views/users.html';
-}
-
 if ($uriArray[1] === 'api' && $uriArray[2] === 'users' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $userController = new UserController();
     $userController->saveUser();
 }
 
 if ($uriArray[1] === 'add-users' && $_SERVER['REQUEST_METHOD'] === 'GET') {
-    require './views/add-users.html';
+    $userController = new UserController();
+    $userController->viewUsers();
 }
 
-
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    require './views/users.html';
+    exit();
+}
