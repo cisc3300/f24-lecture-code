@@ -40,15 +40,20 @@ class UserController
         ];
     }
 
-    public function getUsers($id) {
+    public function getAllUsers() {
         $userModel = new User();
         header("Content-Type: application/json");
-        if ($id) {
-            $users = $userModel->getUserById($id);
-        } else {
-            $users = $userModel->getAllUsers();
-        }
+        $users = $userModel->getAllUsers();
+
         echo json_encode($users);
+        exit();
+    }
+
+    public function getUserByID($id) {
+        $userModel = new User();
+        header("Content-Type: application/json");
+        $user = $userModel->getUserById($id);
+        echo json_encode($user);
         exit();
     }
 

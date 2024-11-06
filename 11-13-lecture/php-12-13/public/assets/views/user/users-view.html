@@ -14,17 +14,14 @@
         <div class="container users-form margin-thirty">
             <h2>Users</h2>
             <div id="users-container" class="margin-ten"></div>
-            <a href="/users-add-view" class="btn btn-success margin-thirty">Add User</a>
+            <a href="/users-add" class="btn btn-success margin-thirty">Add User</a>
         </div>
 
 
         <script>
-            if ('0') {
-                console.log('yo')
-            }
             $(document).ready(function () {
                 $.ajax({
-                    url: `http://localhost:8888/users`,
+                    url: `http://localhost:8888/api/users`,
                     type: "GET",
                     dataType: "json",
                     success: function (data) {
@@ -38,8 +35,8 @@
                                 <div class="user-container margin-thirty">
                                     <span class="user">${value['firstName']} ${value['lastName']}</span>
                                     <span>
-                                    <a href="users-update-view/${value['id']}" class="btn btn-primary">edit</a>
-                                    <a href="users-delete-view/${value['id']}" class="btn btn-danger">delete</a>
+                                    <a href="users-update/${value['id']}" class="btn btn-primary">edit</a>
+                                    <a href="users-delete/${value['id']}" class="btn btn-danger">delete</a>
                                     </span>
                                 </div>`)
                         });

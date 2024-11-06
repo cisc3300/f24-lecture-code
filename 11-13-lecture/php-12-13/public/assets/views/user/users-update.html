@@ -12,7 +12,7 @@
     <body>
 
         <div class="container users-form margin-thirty">
-            <a href="http://localhost:8888/users-view" class="link">Home</a>
+            <a href="http://localhost:8888/" class="link">Home</a>
             <h2 class="margin-thirty">Edit User</h2>
             <form id="form-id">
                 <div class="form-group margin-twenty">
@@ -38,7 +38,7 @@
                 const urlArry = window.location.pathname.split("/")
                 const id = urlArry[2]
                 $.ajax({
-                    url: `http://localhost:8888/users/${id}`,
+                    url: `http://localhost:8888/api/users/${id}`,
                     type: "GET",
                     dataType: "json",
                     success: function (data) {
@@ -61,12 +61,12 @@
                         lastName,
                     }
                     $.ajax({
-                        url: `http://localhost:8888/users/${id}`,
+                        url: `http://localhost:8888/api/users/${id}`,
                         type: "PUT",
                         data: data,
                         dataType: "json",
                         success: function (data) {
-                            window.location.replace("http://localhost:8888/users-view");
+                            window.location.replace("http://localhost:8888/");
                         },
                         error: function (data){
                             $('#firstName-error').html('')

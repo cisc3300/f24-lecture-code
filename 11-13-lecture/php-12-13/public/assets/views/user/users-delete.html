@@ -12,7 +12,7 @@
     <body>
 
         <div class="container users-form margin-thirty">
-            <a href="http://localhost:8888/users-view" class="link">Home</a>
+            <a href="http://localhost:8888/" class="link">Home</a>
             <div id="delete-user-container" class="margin-thirty">
                 <h2 id="user-delete">Are you sure you want to delete </h2>
                 <div id="users-data"></div>
@@ -26,7 +26,7 @@
                 const urlArry = window.location.pathname.split("/")
                 const id = urlArry[2]
                 $.ajax({
-                    url: `http://localhost:8888/users/${id}`,
+                    url: `http://localhost:8888/api/users/${id}`,
                     type: "GET",
                     dataType: "json",
                     success: function (data) {
@@ -42,11 +42,11 @@
                     const urlArry = window.location.pathname.split("/")
                     const id = urlArry[2]
                     $.ajax({
-                        url: `http://localhost:8888/users/${id}`,
+                        url: `http://localhost:8888/api/users/${id}`,
                         type: "DELETE",
                         dataType: "json",
                         success: function (data) {
-                            window.location.replace("http://localhost:8888/users-view");
+                            window.location.replace("http://localhost:8888/");
                         }
                     });
                 })

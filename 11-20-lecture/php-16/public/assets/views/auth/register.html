@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Membership Demo</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="/assets/styles/users-view.css">
+    </head>
+    <body>
+
+        <div class="container users-form margin-twenty">
+            <a href="http://localhost:8888/login-form" class="link">Login</a>
+        </div>
+        <div class="container users-form margin-thirty">
+            <h2>Register</h2>
+            <div class="margin-twenty">
+                <form id="class-form">
+                    <div class="form-group">
+                        <label for="firstNameTextBox">First Name</label>
+                        <input type="text" class="form-control" id="firstNameTextBox"
+                               placeholder="Enter First Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastNameTextBox">Last Name</label>
+                        <input type="text" class="form-control" id="lastNameTextBox"
+                               placeholder="Enter Last Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="emailTextBox">Email</label>
+                        <input type="text" class="form-control" id="emailTextBox"
+                               placeholder="Enter Email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="passwordTextBox">Password</label>
+                        <input type="password" class="form-control" id="passwordTextBox"
+                               placeholder="Enter Password">
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-primary" id="search-button">Sign Up</button>
+                    </div>
+
+                    <div id="results" class="margin-ten user-container"></div>
+                    <h3 id="directions-title" class="margin-thirty"></h3>
+                    <ul id="directions-container" ></ul>
+                    <h3 id="itinerary-title" class="margin-thirty margin-negative-ten"></h3>
+                    <div id="itinerary-container" class="itinerary-container"></div>
+                    <div id="spinner-container"></div>
+                </form>
+            </div>
+        </div>
+
+        <script>
+
+            $(document).ready(function () {
+                $('#class-form').on('submit', function (e) {
+                    console.log('hey')
+                    e.preventDefault();
+                    var firstName = $('#firstNameTextBox').val();
+                    var lastName = $('#lastNameTextBox').val();
+                    var email = $('#emailTextBox').val();
+                    var password = $('#passwordTextBox').val();
+
+                    const data = {
+                        firstName,
+                        lastName,
+                        email,
+                        password
+                    }
+
+                    $.ajax({
+                        url: 'http://localhost:8888/register',
+                        type: "POST",
+                        data: data,
+                        dataType: "json",
+                        success: function (data) {
+                            window.location.replace(data.route);
+                        },
+                        error: function (data){
+                            console.log(data)
+                        }
+                    });
+                });
+            })
+        </script>
+    </body>
+</html>

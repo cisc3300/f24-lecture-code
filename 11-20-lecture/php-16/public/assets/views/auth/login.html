@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Membership Demo</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="/assets/styles/users-view.css">
+    </head>
+    <body>
+
+        <div class="container users-form margin-twenty">
+            <a href="http://localhost:8888/register-form" class="link">Register</a>
+        </div>
+
+        <div class="container users-form margin-thirty">
+
+            <h2>Login</h2>
+            <div class="margin-twenty">
+                <form id="class-form">
+                    <div class="form-group">
+
+                        <input type="text" class="form-control" id="emailTextBox"
+                               placeholder="Enter Email">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="passwordTextBox"
+                               placeholder="Enter Password">
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-primary" id="search-button">Sign In</button>
+                    </div>
+
+                </form>
+
+
+            </div>
+        </div>
+
+        <script>
+
+            $(document).ready(function () {
+
+
+                //try to get unauthed data
+                // $.ajax({
+                //     url: `http://localhost:8888/app-data`,
+                //     type: "GET",
+                //     dataType: "json",
+                //     success: function (data) {
+                //         console.log(data)
+                //     }
+                // });
+
+                $('#class-form').on('submit', function (e) {
+                    e.preventDefault();
+                    var email = $('#emailTextBox').val();
+                    var password = $('#passwordTextBox').val();
+
+                    const data = {
+                        email,
+                        password
+                    }
+
+                    $.ajax({
+                        url: 'http://localhost:8888/login',
+                        type: "POST",
+                        data: data,
+                        dataType: "json",
+                        success: function (data) {
+                            window.location.replace(data.route);
+                        },
+                        error: function (data){
+                            console.log(data)
+                        }
+                    });
+                });
+            })
+        </script>
+    </body>
+</html>
