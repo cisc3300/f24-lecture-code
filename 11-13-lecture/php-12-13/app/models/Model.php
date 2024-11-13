@@ -9,7 +9,7 @@ abstract class Model {
 
     public function findAll() {
         $query = "select * from $this->table";
-        return $this->query($query);
+        return $this->fetchAll($query);
     }
 
     private function connect() {
@@ -18,15 +18,14 @@ abstract class Model {
         $port = '8889';
         $charset = 'utf8mb4';
 
-//        $dsn = "mysql:hostname=" . DBHOST . ";dbname=" . DBNAME;
+//      some of these are optional
         $dsn = "$type:hostname=" . DBHOST .";dbname=" . DBNAME . ";port=$port;charset=$charset";
 
         $options = [
+            //we can set the error mode, to throw exceptions or PDO type errors
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             //set the default fetch type
-            //PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,/
-            PDO::ATTR_EMULATE_PREPARES => false,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         ];
 
         try {
@@ -53,11 +52,12 @@ abstract class Model {
 
     public function fetchAllWithParams($query, $data = []) {
         $connection = $this->connect();
-        //prepare statement -
+        //prepare statement - a query with any dynamic data subbed out with variables like :firstName
         $statementObject = $connection->prepare($query);
+        //data is an associative array with key value pairs matching any params in the query
         $successOrFail = $statementObject->execute($data);
         if ($successOrFail) {
-            $result = $statementObject->fetchAll(\PDO::FETCH_OBJ);
+            $result = $statementObject->fetchAll(PDO::FETCH_OBJ);
             if (is_array($result) && count($result)) {
                 return $result;
             }

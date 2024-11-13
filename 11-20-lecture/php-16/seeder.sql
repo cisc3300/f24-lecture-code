@@ -5,6 +5,3 @@ CREATE TABLE `users`
     `description` varchar(254) NOT NULL,
     primary key (`id`)
 );
-
-insert into projects (name, description)
-values ('first project', 'first description');

@@ -9,7 +9,7 @@ class User extends Model {
 
     public function getAllUsersByName($name) {
         $query = "select * from users WHERE CONCAT(firstName,' ',lastName) like :name";
-        return $this->fetchAllWithParams($query, ['name' => '%' . $name . '%'], 'app\models\User');
+        return $this->fetchAllWithParams($query, ['name' => '%' . $name . '%']);
     }
 
     public function getAllUsers() {
