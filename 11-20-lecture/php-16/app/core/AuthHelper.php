@@ -2,7 +2,6 @@
 
 namespace app\core;
 
-use app\models\Session;
 use app\models\User;
 use DateTime;
 use DateInterval;
@@ -12,7 +11,7 @@ class AuthHelper
     public static function authRoute() {
         if (!isset($_SESSION['id'])) {
             http_response_code(401);
-            header('Location: login-form');
+            header('Location: login');
             exit();
         }
     }

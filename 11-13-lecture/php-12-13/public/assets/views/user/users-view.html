@@ -26,11 +26,7 @@
                     dataType: "json",
                     success: function (data) {
                         $('#users-container').html('')
-                        console.log('data')
-                        console.log(data)
                         $.each(data, function (key, value) {
-                            console.log('value')
-                            console.log(value)
                             $('#users-container').append(`
                                 <div class="user-container margin-thirty">
                                     <span class="user">${value['firstName']} ${value['lastName']}</span>

@@ -13,7 +13,6 @@ abstract class Model {
     }
 
     private function connect() {
-
         $type = 'mysql';
         $port = '8889';
         $charset = 'utf8mb4';

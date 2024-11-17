@@ -12,7 +12,7 @@
     <body>
 
         <div class="container users-form margin-twenty">
-            <a href="http://localhost:8888/register-form" class="link">Register</a>
+            <a href="http://localhost:8888/register" class="link">Register</a>
         </div>
 
         <div class="container users-form margin-thirty">
@@ -67,7 +67,7 @@
                     }
 
                     $.ajax({
-                        url: 'http://localhost:8888/login',
+                        url: 'http://localhost:8888/api/login',
                         type: "POST",
                         data: data,
                         dataType: "json",

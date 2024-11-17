@@ -3,38 +3,59 @@
 namespace app\core;
 
 use app\controllers\MainController;
+use app\controllers\AuthController;
 
-class Router
-{
-    public $routeList;
-    function __construct($routes)
+class Router {
+    public $urlArray;
+
+    function __construct()
     {
-        $this->routeList = $routes;
+        $this->urlArray = $this->routeSplit();
+        $this->handleAuthRoutes();
+        $this->handleMainRoutes();
     }
 
-    public function serveRoute() {
-        $uriParse = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
-        $method =  $_SERVER['REQUEST_METHOD'];
-        $preQuery = explode('?', $uriParse[0]);
-        if ($preQuery[0]) {
-            $route = $this->routeList[$preQuery[0]] ?? null;
-            if ($route) {
-                if(isset($route['controller']) && isset($route[$method])) {
-                    $controller = $route['controller'];
-                    $action = $route[$method];
-                    $controller = new $controller();
-                    $controller->$action();
-                } else {
-                    $homepageController = new MainController();
-                    $homepageController->notFound();
-                }
-            } else {
-                $homepageController = new MainController();
-                $homepageController->notFound();
-            }
-        } else {
-            $homepageController = new MainController();
-            $homepageController->homepage();
+    protected function routeSplit() {
+        $removeQueryParams = strtok($_SERVER["REQUEST_URI"], '?');
+        return explode("/", $removeQueryParams);
+    }
+
+    protected function handleAuthRoutes() {
+        if ($this->urlArray[1] === 'login' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+            $authController = new AuthController();
+            $authController->loginView();
+        }
+
+        if ($this->urlArray[1] === 'register' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+            $authController = new AuthController();
+            $authController->registerView();
+        }
+
+        if ($this->urlArray[1] === 'api' && $this->urlArray[2] === 'register' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+            $authController = new AuthController();
+            $authController->register();
+        }
+
+        if ($this->urlArray[1] === 'api' && $this->urlArray[2] === 'login' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+            $authController = new AuthController();
+            $authController->login();
+        }
+
+        if ($this->urlArray[1] === 'api' && $this->urlArray[2] === 'logout' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+            $authController = new AuthController();
+            $authController->logout();
+        }
+    }
+
+    protected function handleMainRoutes() {
+        if ($this->urlArray[1] === '' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+            $mainController = new MainController();
+            $mainController->homepage();
+        }
+
+        if ($this->urlArray[1] === 'api' && $this->urlArray[2] === 'app-data' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+            $mainController = new MainController();
+            $mainController->appData();
         }
     }
 }

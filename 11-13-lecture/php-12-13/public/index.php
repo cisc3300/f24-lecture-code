@@ -5,6 +5,7 @@ require_once "../app/controllers/UserController.php";
 
 //set our env variables
 $env = parse_ini_file('../.env');
+//['DBHOST' => 'test', ]
 define('DBNAME', $env['DBNAME']);
 define('DBHOST', $env['DBHOST']);
 define('DBUSER', $env['DBUSER']);

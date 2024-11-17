@@ -5,25 +5,19 @@ namespace app\controllers;
 use app\core\AuthHelper;
 use app\models\User;
 
-class AuthController
-{
+class AuthController extends Controller {
 
-    public function loginView()
-    {
+    public function loginView() {
         AuthHelper::nonAuthRoute();
-        include APP_VIEWS . '/auth/login.html';
-        exit();
+        $this->returnView('./assets/views/auth/login.html');
     }
 
-    public function registerView()
-    {
+    public function registerView() {
         AuthHelper::nonAuthRoute();
-        include APP_VIEWS . '/auth/register.html';
-        exit();
+        $this->returnView('./assets/views/auth/register.html');
     }
 
-    public function login()
-    {
+    public function login() {
         $inputData = [
             'email' => $_POST['email'] ? $_POST['email'] : false,
             'password' => $_POST['password'] ? $_POST['password'] : false,
@@ -40,24 +34,20 @@ class AuthController
         AuthHelper::startSession($authedUser);
 
         http_response_code(200);
-        echo json_encode([
+        $this->returnJSON([
             'route' => '/'
         ]);
-        exit();
     }
 
-    public function logout()
-    {
+    public function logout() {
         AuthHelper::endSession();
         http_response_code(200);
-        echo json_encode([
-            'route' => '/login-form'
+        $this->returnJSON([
+            'route' => '/login'
         ]);
-        exit;
     }
 
-    public function register()
-    {
+    public function register(){
         //validate user
 
         $inputData = [
@@ -81,10 +71,9 @@ class AuthController
         );
 
         http_response_code(200);
-        echo json_encode([
-            'route' => 'login-form'
+        $this->returnJSON([
+            'route' => '/login'
         ]);
-        exit();
     }
 
 }

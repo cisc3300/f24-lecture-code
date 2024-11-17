@@ -5,19 +5,15 @@ namespace app\controllers;
 use app\core\AuthHelper;
 use app\models\User;
 
-class MainController
-{
+class MainController extends Controller {
 
-    public function homepage()
-    {
+    public function homepage() {
         AuthHelper::authRoute();
-        include '../public/assets/views/main/homepage.html';
-        exit();
+        $this->returnView('./assets/views/main/homepage.html');
     }
 
-    public function notFound()
-    {
-        echo 'not found';
+    public function notFound() {
+        $this->returnView('./assets/views/notFound.html');
     }
 
     public function appData() {
@@ -27,21 +23,19 @@ class MainController
             $userModel = new User();
             $user = $userModel->getUserByID($_SESSION['id']);
             http_response_code(200);
-            echo json_encode([
+            $this->returnJSON([
                 'currentUser' => [
                     'firstName' => $user['firstName'],
                     'lastName' => $user['lastName'],
                     'email' => $user['email'],
                 ]
             ]);
-            exit();
         }
 
         http_response_code(500);
-        echo json_encode([
+        $this->returnJSON([
             'error' => 'something happened'
         ]);
-        exit();
     }
 
 }
